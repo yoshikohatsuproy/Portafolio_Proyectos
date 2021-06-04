@@ -1,0 +1,63 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+            <form class="login100-form validate-form flex-sb flex-w"
+                  (ngSubmit)="onLogin()"
+                  [formGroup] ="usuarioForm">
+
+                <span class="login100-form-title p-b-51">
+                    Login
+                </span>
+
+                <!-- <span class="text-danger">El correo es obligatorio</span> -->
+                <div class="wrap-input100 m-b-16">
+                  <input  class="input100"
+                          type="email"
+                          placeholder="Email"
+                          formControlName="email"
+                          [class]="isValidField('email')">
+                  <div class="invalid-feedback" style="background-color: white;">
+                    <span *ngIf="usuarioForm.get('email').errors?.required">Este campo es obligatorio</span>
+                    </div>
+                </div>
+
+                <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
+                <div class="wrap-input100 m-b-16">
+                  <input  class="input100"
+                          type="password"
+                          placeholder="Password"
+                          formControlName="password"
+                          [class]="isValidField('password')">
+                  <div class="invalid-feedback" style="background-color: white;">
+                    <span *ngIf="usuarioForm.get('password').errors?.required">Este campo es obligatorio</span>
+                    </div>
+                </div>
+
+                <div class="flex-sb-m w-full p-t-3 p-b-24">
+
+                    <div>
+                        <a [routerLink]="['/registro']" class="txt1">
+                            ¿No tienes cuenta?
+                        </a>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn m-t-17">
+                    <button class="login100-form-btn" type="submit">
+                        Ingresar
+                    </button>
+                </div>
+
+            </form>
+            <div class="container-login100-form-btn m-t-17" >
+              <button (click)="onLoginFacebook()" class="login100-form-btn" type="submit" style="width: 49%;margin-right: 1%; background-color: #3b5998 ;">
+                  Facebook
+              </button>
+              <button (click)="onLoginTwitter()" class="login100-form-btn" type="submit" style="width: 49%;margin-left: 1%; background-color: #00acee ;">
+                  Twitter
+              </button>
+            </div>
+        </div>
+    </div>
+</div>
+

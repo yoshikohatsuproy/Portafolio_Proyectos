@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<div class="table-responsive">
+
+  <table *ngIf="!cargando && heroes.length >0"  class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Alias</th>
+        <th scope="col">Casa</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-info" *ngFor="let item of heroes" >
+        <th scope="row">{{item.name}}</th>
+        <td>{{item.alias}}</td>
+        <td>{{item.casa}}</td>
+        <td>
+          <button (click)="ongoEdit(item)" class="btn btn-success mr-1"><i class="fa fa-refresh"></i></button>
+          <button (click)="ongoDelete(item)" class="btn btn-danger mr-1"><i class="fa fa-trash"></i></button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!cargando && heroes.length ===0"
+  class="alert alert-warning text-center mt-3">
+  <h4 class="alert-heading">No hay registros</h4>
+  <p><i class="fa fa-exclamation fa-2x"></i></p>
+  <p class="mb-0">Espere por favor</p>
+</div>
+<div *ngIf="cargando" class="alert alert-info text-center mt-3">
+  <h4 class="alert-heading">Cargando</h4>
+  <p><i class="fa fa-sync-alt fa-spin fa-2x"></i></p>
+  <p class="mb-0">Espere por favor</p>
+</div>

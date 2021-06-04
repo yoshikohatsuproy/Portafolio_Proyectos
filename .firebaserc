@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cl2-huambachano": {
+      "hosting": {
+        "login-app": [
+          "cl2-huambachano"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "jonathan00001"
+  }
+}
